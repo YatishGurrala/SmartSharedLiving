@@ -1,0 +1,50 @@
+{
+  "node": {
+    "000ab9de41b7293b9ab83a261df0976500f81826d2": {
+      "workers": {
+        "app/auth/signup/page": {
+          "moduleId": "[project]/apps/web/.next-internal/server/app/auth/signup/page/actions.js { ACTIONS_MODULE0 => \"[project]/apps/web/app/auth/login/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "signout",
+          "filename": "apps/web/app/auth/login/actions.ts"
+        }
+      },
+      "layer": {
+        "app/auth/signup/page": "rsc"
+      },
+      "exportedName": "signout",
+      "filename": "apps/web/app/auth/login/actions.ts"
+    },
+    "40c07282cd99abe712f4e6a30f8da8976aa78e73f8": {
+      "workers": {
+        "app/auth/signup/page": {
+          "moduleId": "[project]/apps/web/.next-internal/server/app/auth/signup/page/actions.js { ACTIONS_MODULE0 => \"[project]/apps/web/app/auth/login/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "signup",
+          "filename": "apps/web/app/auth/login/actions.ts"
+        }
+      },
+      "layer": {
+        "app/auth/signup/page": "rsc"
+      },
+      "exportedName": "signup",
+      "filename": "apps/web/app/auth/login/actions.ts"
+    },
+    "40dc4df6b04139152e4668ee28fd12b9fc71d6c493": {
+      "workers": {
+        "app/auth/signup/page": {
+          "moduleId": "[project]/apps/web/.next-internal/server/app/auth/signup/page/actions.js { ACTIONS_MODULE0 => \"[project]/apps/web/app/auth/login/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "login",
+          "filename": "apps/web/app/auth/login/actions.ts"
+        }
+      },
+      "layer": {
+        "app/auth/signup/page": "rsc"
+      },
+      "exportedName": "login",
+      "filename": "apps/web/app/auth/login/actions.ts"
+    }
+  },
+  "edge": {}
+}
