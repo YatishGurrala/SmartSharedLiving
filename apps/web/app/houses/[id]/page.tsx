@@ -211,7 +211,7 @@ export default async function HouseDetailPage({ params }: HouseDetailPageProps) 
                 </div>
 
                 {/* Dashboard Quick Actions */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                     <Link href={`/houses/${id}/agreements`} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all">
                         <div className="text-2xl mb-2">📋</div>
                         <h3 className="font-semibold text-gray-900">Agreements</h3>
@@ -231,6 +231,16 @@ export default async function HouseDetailPage({ params }: HouseDetailPageProps) 
                         <div className="text-2xl mb-2">📢</div>
                         <h3 className="font-semibold text-gray-900">Notices</h3>
                         <p className="text-sm text-gray-500">Announcements</p>
+                    </Link>
+                    <Link href={`/houses/${id}/members`} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all">
+                        <div className="text-2xl mb-2">👥</div>
+                        <h3 className="font-semibold text-gray-900">Members</h3>
+                        <p className="text-sm text-gray-500">Manage people</p>
+                    </Link>
+                    <Link href={`/houses/${id}/settings`} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all">
+                        <div className="text-2xl mb-2">⚙️</div>
+                        <h3 className="font-semibold text-gray-900">Settings</h3>
+                        <p className="text-sm text-gray-500">House options</p>
                     </Link>
                 </div>
 

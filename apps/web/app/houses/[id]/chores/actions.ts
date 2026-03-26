@@ -68,15 +68,19 @@ export async function createChore(houseId: string, formData: FormData) {
             return { error: formatSupabaseError(error) }
         }
 
-        // Log activity
-        await supabase.rpc('log_activity', {
-            p_house_id: houseId,
-            p_user_id: user.id,
-            p_activity_type: 'chore_created',
-            p_entity_type: 'chore',
-            p_entity_id: chore.id,
-            p_metadata: { title },
-        }).catch(err => console.error('Activity log error:', err))
+        // Log activity (non-blocking)
+        try {
+            await supabase.rpc('log_activity', {
+                p_house_id: houseId,
+                p_user_id: user.id,
+                p_activity_type: 'chore_created',
+                p_entity_type: 'chore',
+                p_entity_id: chore.id,
+                p_metadata: { title },
+            })
+        } catch (logErr) {
+            console.error('Activity log error:', logErr)
+        }
 
         // Track analytics
         trackServerEvent({
@@ -215,15 +219,19 @@ export async function completeChore(choreId: string, houseId: string) {
             return { error: formatSupabaseError(error) }
         }
 
-        // Log activity
-        await supabase.rpc('log_activity', {
-            p_house_id: houseId,
-            p_user_id: user.id,
-            p_activity_type: 'chore_completed',
-            p_entity_type: 'chore',
-            p_entity_id: choreId,
-            p_metadata: { title: chore.title },
-        }).catch(err => console.error('Activity log error:', err))
+        // Log activity (non-blocking)
+        try {
+            await supabase.rpc('log_activity', {
+                p_house_id: houseId,
+                p_user_id: user.id,
+                p_activity_type: 'chore_completed',
+                p_entity_type: 'chore',
+                p_entity_id: choreId,
+                p_metadata: { title: chore.title },
+            })
+        } catch (logErr) {
+            console.error('Activity log error:', logErr)
+        }
 
         // Track analytics
         trackServerEvent({

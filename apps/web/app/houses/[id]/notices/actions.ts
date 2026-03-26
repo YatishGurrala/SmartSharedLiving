@@ -68,15 +68,19 @@ export async function createNotice(houseId: string, formData: FormData) {
             return { error: formatSupabaseError(error) }
         }
 
-        // Log activity
-        await supabase.rpc('log_activity', {
-            p_house_id: houseId,
-            p_user_id: user.id,
-            p_activity_type: 'notice_posted',
-            p_entity_type: 'notice',
-            p_entity_id: notice.id,
-            p_metadata: { title },
-        }).catch(err => console.error('Activity log error:', err))
+        // Log activity (non-blocking)
+        try {
+            await supabase.rpc('log_activity', {
+                p_house_id: houseId,
+                p_user_id: user.id,
+                p_activity_type: 'notice_posted',
+                p_entity_type: 'notice',
+                p_entity_id: notice.id,
+                p_metadata: { title },
+            })
+        } catch (logErr) {
+            console.error('Activity log error:', logErr)
+        }
 
         // Track analytics
         trackServerEvent({

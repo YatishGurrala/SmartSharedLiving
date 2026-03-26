@@ -3,12 +3,15 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
 export default async function Home() {
-  const supabase = await createClient()
-
-  // if user is already logged in, take them to the app
-  const { data: { user } } = await supabase.auth.getUser()
-  if (user) {
-    redirect('/rooms')
+  try {
+    const supabase = await createClient()
+    // if user is already logged in, take them to the app
+    const { data: { user } } = await supabase.auth.getUser()
+    if (user) {
+      redirect('/rooms')
+    }
+  } catch {
+    // Supabase not available, show landing page anyway
   }
 
   return (
